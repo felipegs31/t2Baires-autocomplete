@@ -11,7 +11,7 @@ import { HttpModule,
 import { MockBackend } from '@angular/http/testing';
 import { ApiService } from './api.service';
 
-fdescribe('ApiService', () => {
+describe('ApiService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpModule],
@@ -26,7 +26,7 @@ fdescribe('ApiService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should return an Observable<Array<Photo>>',
+  it('should return an Observable<Array<Films>>',
     inject([ApiService, XHRBackend], (apiService, mockBackend) => {
 
   const mockResponse = [
@@ -50,7 +50,6 @@ fdescribe('ApiService', () => {
   });
 
   apiService.getFilms('The Waterfall Hunter 4: In Kauai and Oahu').subscribe((films) => {
-    console.log(films);
     expect(films.length).toBe(1);
     expect(films[0].year).toBe(2015);
   });

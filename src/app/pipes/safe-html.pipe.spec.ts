@@ -1,8 +1,19 @@
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { inject, TestBed } from '@angular/core/testing';
+import { BrowserModule } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 describe('SafeHtmlPipe', () => {
-  it('create an instance', () => {
-    // const pipe = new SafeHtmlPipe();
-    expect(true).toBeTruthy();
+  beforeEach(() => {
+    TestBed
+      .configureTestingModule({
+        imports: [
+          BrowserModule
+        ]
+      });
   });
+  it('create an instance', inject([DomSanitizer], (domSanitizer: DomSanitizer) => {
+    const pipe = new SafeHtmlPipe(domSanitizer);
+    expect(pipe).toBeTruthy();
+  }));
 });

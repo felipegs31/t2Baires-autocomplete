@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { ApiService } from './services/api.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CardDropComponent } from './card-drop/card-drop.component';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ClickOutDirective } from './directives/click-out.directive';
@@ -22,8 +22,7 @@ import { ClickOutDirective } from './directives/click-out.directive';
     BrowserModule,
     routing,
     HttpModule,
-    FormsModule,
-    ReactiveFormsModule
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

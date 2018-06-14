@@ -18,18 +18,17 @@ import 'rxjs/add/observable/of';
 })
 export class SearchComponent implements OnInit {
 
-  films: Observable<any[]>;
+  films: Observable<Array<FilmModel>>;
   searchTerms = new Subject<string>();
   filmName = '';
-  filmsBackend: Array<FilmModel>;
   showDropDown: boolean;
   constructor(private apiService: ApiService ) { }
 
   ngOnInit() {
     this.films = this.searchTerms
-      .debounceTime(300)        // wait for 300ms pause in events
-      .distinctUntilChanged()   // ignore if next search term is same as previous
-      .switchMap(term => term   // switch to new observable each time
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .switchMap(term => term
         ? this.fetch(term)
         : Observable.of<any[]>([]))
       .catch(error => {
