@@ -1,0 +1,42 @@
+.drop-down {
+    position: absolute;
+    max-height: 300px;
+    z-index: 1;
+    background-color: #F6F6F6;
+    font-family: sans-serif;
+    opacity: 0.98;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.drop-down {
+  position: inherit;
+  max-height: 400px;
+  background-color: #F6F6F6;
+  font-family: sans-serif;
+  width: 100%;
+  overflow-y: auto;
+  z-index: 1;
+  top: -13px;
+}
+
+.navbar.center .navbar-inner {
+  text-align: center;
+}
+
+.navbar.center .navbar-inner .nav {
+  display:inline-block;
+  float: none;
+}
+
+.header{
+  background-color: rgb(139, 133, 133);
+  height: 60px;
+}
+
+input {
+  height: 40px;
+  margin-top: 10px;
+}
+
+

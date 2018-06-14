@@ -1,0 +1,12 @@
+<div class="container results">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <img width="100%" [src]="film.image_code | safeHtml" sizes="(max-width: 660px) 100vw, 660px">
+      {{film.image_code}}
+    </div>
+    <div class="col-md-8">
+      <span class="film-title">{{film.label}}</span>
+      <p class="film-year"><b>year:</b> {{film.year}}</p>
+    </div>
+  </div>
+</div>

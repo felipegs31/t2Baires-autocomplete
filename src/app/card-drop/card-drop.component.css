@@ -1,0 +1,16 @@
+.results:hover {
+  background: #a7a6a6;
+}
+
+.film-title{
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.film-year {
+  font-size: 12px;
+}
+
+.container {
+  padding-top: 10px;
+}
