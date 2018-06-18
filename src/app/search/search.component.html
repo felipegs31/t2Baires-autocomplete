@@ -7,10 +7,16 @@
     </div>
     <div appClickOut (clickOutside)="closeDropDown()">
       <div *ngIf="showDropDown" class="drop-down">
-        <div *ngFor="let film of films | async">
-          <app-card-drop [film]="film"></app-card-drop>
+        <div *ngFor="let film of films | async" >
+          <div *ngIf="!film.isEmpty">
+            <app-card-drop [film]="film"></app-card-drop>
+          </div>
+          <div *ngIf="film.isEmpty" class="empty-results">
+            No Results found
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

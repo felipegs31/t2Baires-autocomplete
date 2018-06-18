@@ -13,11 +13,22 @@ export class ApiService {
   constructor(private http: Http) {
   }
 
+  emptyMock = [{
+    'isEmpty': true
+  }];
+
+  // add comments
   getFilms(term: string): Observable<Array<FilmModel>> {
       const filmList = this.http
         .get(`${environment.film.film}?term=${term}`)
           .map((r: Response) => {
-            return r.json();
+            const res = r.json();
+            if (res.length < 1) {
+              return this.emptyMock;
+            } else {
+              res.map(ans => ans.isEmpty = false);
+              return res;
+            }
           })
           .catch(this.handleError);
       return filmList;

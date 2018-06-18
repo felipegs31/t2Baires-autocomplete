@@ -10,6 +10,8 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/take';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-search',
@@ -22,9 +24,13 @@ export class SearchComponent implements OnInit {
   searchTerms = new Subject<string>();
   filmName = '';
   showDropDown: boolean;
+  showEmptyDropdown: boolean;
+  subscriptionEmptyCheck: Subscription;
+  apiFilm: Observable<Array<FilmModel>>;
   constructor(private apiService: ApiService ) { }
 
   ngOnInit() {
+    // api subscription
     this.films = this.searchTerms
       .debounceTime(300)
       .distinctUntilChanged()
@@ -37,9 +43,12 @@ export class SearchComponent implements OnInit {
       });
   }
 
+  // manage the api response
   fetch(term) {
     return this.apiService.getFilms(term);
   }
+
+  // get the user input and pass it to the function that calls the api
   searchClient(term: string): void {
     this.showDropDown = true;
     this.searchTerms.next(term);

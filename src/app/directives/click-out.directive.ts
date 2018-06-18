@@ -9,6 +9,7 @@ export class ClickOutDirective {
 
   @HostListener('document:click', ['$event.target'])
     public onClick(targetElement) {
+      // check if it was clicked inside of the dropdown element
       const isClickedInside = this._elementRef.nativeElement.contains(targetElement);
 
       if (!isClickedInside) {

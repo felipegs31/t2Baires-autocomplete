@@ -3,7 +3,6 @@
 }
 
 .film-title{
-  margin-top: 10px;
   font-size: 15px;
 }
 
@@ -13,4 +12,5 @@
 
 .container {
   padding-top: 10px;
+  padding-bottom: 10px;
 }

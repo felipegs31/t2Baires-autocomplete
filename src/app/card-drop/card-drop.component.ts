@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FilmModel } from './../models/film.model';
 
 @Component({
   selector: 'app-card-drop',
@@ -7,12 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardDropComponent implements OnInit {
 
-  @Input() film;
+  // films input
+  @Input() film = {};
 
   constructor() { }
 
   ngOnInit() {
   }
-
 
 }
