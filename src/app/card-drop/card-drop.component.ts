@@ -9,7 +9,11 @@ import { FilmModel } from './../models/film.model';
 export class CardDropComponent implements OnInit {
 
   // films input
-  @Input() film = {};
+  @Input() film = {
+    image_code: '',
+    link_code: '',
+    year: 0
+  } ;
 
   constructor() { }
 
